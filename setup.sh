@@ -13,7 +13,7 @@ docker run -td --name notebook \
 	       -p 8888:8888 \
 	       -v $(pwd)/work:/home/$NB_USER/work jupyter/tensorflow-notebook
 sleep 2
-RUNTIME_JSON=$(docker exec -i notebook ls /home/mxu/.local/share/jupyter/runtime/ | grep json)
+RUNTIME_JSON=$(docker exec -i notebook ls /home/$NB_USER/.local/share/jupyter/runtime/ | grep json)
 URL=$(docker exec -i notebook cat /home/$NB_USER/.local/share/jupyter/runtime/$RUNTIME_JSON | grep token | awk -F '"' '{print "http://localhost:8888/lab?token="$(NF-1)}')
 echo "[NOTE]: Bookmark acccess URL: $URL"
 echo "[ACTION]: Opening access URL: $URL"
