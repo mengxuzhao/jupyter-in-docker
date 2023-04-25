@@ -1,5 +1,4 @@
 #!/bin/bash
-
 NB_USER=$(whoami)
 echo "[NOTE]: Current user: $NB_USER"
 echo "[ACTION]: Creating local 'work' directory"
